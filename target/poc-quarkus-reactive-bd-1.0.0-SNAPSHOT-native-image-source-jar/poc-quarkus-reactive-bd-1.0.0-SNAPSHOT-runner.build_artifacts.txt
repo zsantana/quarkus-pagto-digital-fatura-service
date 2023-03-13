@@ -1,0 +1,3 @@
+[EXECUTABLE]
+poc-quarkus-reactive-bd-1.0.0-SNAPSHOT-runner
+

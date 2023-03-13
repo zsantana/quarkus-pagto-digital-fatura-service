@@ -1,0 +1,10 @@
+br/com/xbinario/cartao/v1/entities/TransacaoFaturaEntity.class
+br/com/xbinario/cartao/v1/repository/TransacaoFaturaRepository.class
+br/com/xbinario/cartao/v1/controller/TransacaoFaturaController.class
+br/com/xbinario/cartao/Application.class
+br/com/xbinario/cartao/v1/service/TransacaoFaturaService.class
+br/com/xbinario/cartao/v1/dto/response/ResultadoDTO.class
+br/com/xbinario/cartao/v1/mapper/TransacaoFaturaMapper.class
+META-INF/panache-archive.marker
+br/com/xbinario/cartao/v1/dto/request/RequisicaoDTO.class
+br/com/xbinario/cartao/v1/mapper/TransacaoFaturaMapperImpl.class

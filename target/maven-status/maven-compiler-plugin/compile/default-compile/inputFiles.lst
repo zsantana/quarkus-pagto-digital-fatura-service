@@ -1,0 +1,8 @@
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/Application.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/service/TransacaoFaturaService.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/entities/TransacaoFaturaEntity.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/dto/response/ResultadoDTO.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/dto/request/RequisicaoDTO.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/controller/TransacaoFaturaController.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/repository/TransacaoFaturaRepository.java
+/home/rsantana/projetos/minikube/poc/git/quarkus-pagto-digital-fatura-service/src/main/java/br/com/xbinario/cartao/v1/mapper/TransacaoFaturaMapper.java

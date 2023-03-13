@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-quarkus-reative-bd
+  labels:
+    app: poc-quarkus-reative-bd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: poc-quarkus-reative-bd
+  template:
+    metadata:
+      labels:
+        app: poc-quarkus-reative-bd
+    spec:
+      containers:
+      - name: poc-quarkus-reative-bd
+        image: 442494/poc-quarkus-reative-bd:v1.0.0
+        ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: poc-quarkus-reative-bd-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: poc-quarkus-reative-bd
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: poc-quarkus-reative-bd-ingress
+  labels:
+    name: poc-quarkus-reative-bd-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    #nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: sendbox.minikube.poc.reactive.bd
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: poc-quarkus-reative-bd-service
+            port:
+              number: 8080
