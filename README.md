@@ -32,5 +32,5 @@ openssl rsa -pubout -in rsaPrivateKey.pem -out publicKey.pem
 openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -out privateKey.pem
 
 # Autor
-Reinaldo Jesus Santana - reinaldojsantana@actdigital.com
+Reinaldo Jesus Santana - reinaldojsantana@gmail.com
 
