@@ -1,34 +1,46 @@
+create schema dbo;
+
+
+
 CREATE TABLE dbo.T_LANCAMENTO_FATURA(
-	id int  NOT NULL,
-	numeroContaCartao varchar(16) NULL,
-	numeroCartao varchar(16) NULL,
-	cpfCnpj varchar(15) NULL,
-	codigoMoeda varchar(50) NULL,
-	dataLancamento varchar(50) NULL,
-	descricaoLancamento varchar(50) NULL,
-	numeroParcela varchar(50) NULL,
-	totalParcelas varchar(50) NULL,
-	valorDolar varchar(50) NULL,
-	valorReal varchar(50) NULL,
-	cotacaoDolar varchar(50) NULL,
-	valorOrigem varchar(50) NULL,
-	codigoMoedaAlf varchar(50) NULL,
-	tipoLancamento varchar(50) NULL,
-	ramoAtividade varchar(50) NULL,
-	codigoAutorizacao varchar(50) NULL,
-	chaveTransacao varchar(50) NULL,
-	codigoAgrupado varchar(50) NULL,
-	dataVencimento date NULL
+	id integer NOT NULL,
+    numerocontacartao character varying(255) COLLATE pg_catalog."default",
+    numerocartao character varying(255) COLLATE pg_catalog."default",
+    cpfcnpj character varying(255) COLLATE pg_catalog."default",
+    codigomoeda character varying(255) COLLATE pg_catalog."default",
+    datalancamento character varying(255) COLLATE pg_catalog."default",
+    descricaolancamento character varying(255) COLLATE pg_catalog."default",
+    numeroparcela character varying(255) COLLATE pg_catalog."default",
+    totalparcelas character varying(255) COLLATE pg_catalog."default",
+    valordolar character varying(255) COLLATE pg_catalog."default",
+    valorreal character varying(255) COLLATE pg_catalog."default",
+    cotacaodolar character varying(255) COLLATE pg_catalog."default",
+    valororigem character varying(255) COLLATE pg_catalog."default",
+    codigomoedaalf character varying(255) COLLATE pg_catalog."default",
+    tipolancamento character varying(255) COLLATE pg_catalog."default",
+    ramoatividade character varying(255) COLLATE pg_catalog."default",
+    codigoautorizacao character varying(255) COLLATE pg_catalog."default",
+    chavetransacao character varying(255) COLLATE pg_catalog."default",
+    codigoagrupado character varying(255) COLLATE pg_catalog."default",
+    datavencimento date,
+    CONSTRAINT t_lancamento_fatura_pkey PRIMARY KEY (id)
 );
 
 
-INSERT INTO dbo.T_LANCAMENTO_FATURAX
-	(numeroContaCartao,numeroCartao,cpfCnpj,codigoMoeda,dataLancamento,descricaoLancamento,numeroParcela,totalParcelas,valorDolar,valorReal,cotacaoDolar,valorOrigem,codigoMoedaAlf,tipoLancamento,ramoAtividade,codigoAutorizacao,chaveTransacao,codigoAgrupado,dataVencimento)
-VALUES
-    ( "374758999991392",	"374758003377919",	"42782078089",	"986",	"Dez  7 2022 12:00AM", 	"SEGURO SUPERPROTEGIDO",	0,	0,	0,	9.99,	0,	0,	"BRL",	0,	"0999", "F2022120805374758999991392 00000006OFFE25001",	"0000",	"2022-12-20");
+CREATE SEQUENCE IF NOT EXISTS dbo.t_lancamento_fatura_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1
+    OWNED BY dbo.t_lancamento_fatura.id;
 
 
-CREATE OR ALTER VIEW V_LANCAMENTO_FATURA_OFFLOAD AS
+INSERT INTO dbo.T_LANCAMENTO_FATURA(id, numeroContaCartao, numeroCartao, cpfCnpj)
+VALUES( 1, '123', '123', '123');
+
+
+CREATE OR REPLACE VIEW dbo.V_LANCAMENTO_FATURA_OFFLOAD AS
 SELECT  1 as id,
 		1 as  sequenciaLancamento,
 		t1.numeroContaCartao as numeroContaCartao,

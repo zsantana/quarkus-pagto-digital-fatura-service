@@ -80,14 +80,26 @@ public class TransacaoFaturaController {
     
     @DELETE
     @RolesAllowed("FaturaTransacao")
-    @Path("/accounts/{creditCardAccountId}/{creditCardAccountNumber}/{billingDate}/transactions")
+    @Path("/accounts-token/{creditCardAccountId}/{creditCardAccountNumber}/{billingDate}/transactions")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @Tag(name = "Transações de fatura (MIS021)", 
         description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
     @Retry(maxRetries = 3, delay = 2000)
-    public Response excluir(@PathParam("numeroContaCartao") String numeroContaCartao){
+    public Response excluirComAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
         return Response.ok().build();
     }    
     
+
+    @DELETE
+    //@RolesAllowed("FaturaTransacao")
+    @Path("/accounts/{creditCardAccountId}/{creditCardAccountNumber}/transactions")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Tag(name = "Transações de fatura (MIS021)", 
+        description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
+    @Retry(maxRetries = 3, delay = 2000)
+    public Response excluirSemAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
+        return Response.ok().build();
+    }    
 }
