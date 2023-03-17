@@ -11,16 +11,10 @@ mvn clean package
 mvn quarkus:dev -Ddebug=false
 
 
-# ============================
 # Execução via docker-compose
-# ============================
 
 docker-compose --env-file ./.env up
 
-
-# =====================================
-# Geração de Chaves públicas e privadas
-# =====================================
 
 # gerando chave privada
 openssl genrsa -out rsaPrivateKey.pem 2048
@@ -31,12 +25,17 @@ openssl rsa -pubout -in rsaPrivateKey.pem -out publicKey.pem
 # convertendo chave privada formato PKCS#8
 openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -out privateKey.pem
 
-# Autor
-Reinaldo Jesus Santana - reinaldojsantana@gmail.com
 
+# Indicadores e Performance
+
+
+
+# Estrutura do Protejo
 ![image](https://user-images.githubusercontent.com/17239827/225925543-26bb4148-5283-4d1a-b98a-f72ab3e681d1.png)
 
 
+# Autor
+Reinaldo Jesus Santana - reinaldojsantana@gmail.com
 
 
 

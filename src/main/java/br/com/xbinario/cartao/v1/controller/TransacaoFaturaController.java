@@ -42,7 +42,7 @@ public class TransacaoFaturaController {
     //@RolesAllowed("FaturaTransacao")
     @Path("/accounts/{creditCardNumber}/{cpfNumber}/transactions")
     @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações da Fatura (MIS021)",  
+    @Tag(name = "Transações da Fatura ",  
          description = "Obtém os dados das transações de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardNumber (Conta cartão), cpfNumber (cpfCnpj) e billingDate (Data de Faturamento)")
     @APIResponses({
         @APIResponse(responseCode = "200", description = "Transações de uma Fatura localizado com sucesso."),
@@ -83,7 +83,7 @@ public class TransacaoFaturaController {
     @Path("/accounts-token/{creditCardAccountId}/{creditCardAccountNumber}/{billingDate}/transactions")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações de fatura (MIS021)", 
+    @Tag(name = "Transações de fatura", 
         description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
     @Retry(maxRetries = 3, delay = 2000)
     public Response excluirComAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
@@ -96,7 +96,7 @@ public class TransacaoFaturaController {
     @Path("/accounts/{creditCardAccountId}/{creditCardAccountNumber}/transactions")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações de fatura (MIS021)", 
+    @Tag(name = "Transações de fatura", 
         description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
     @Retry(maxRetries = 3, delay = 2000)
     public Response excluirSemAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
