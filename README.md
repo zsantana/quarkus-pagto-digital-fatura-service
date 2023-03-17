@@ -92,7 +92,7 @@ hey -z 10s -H "Authorization: Bearer ACCESS_TOKEN" http://localhost:8080/credit-
 
 
 # Test performance with ApacheBench
-ab -k -n 10000 -c 10 -H "Authorization: Bearer ACCES_TOKEN" http://localhost:8080/credit-cards-accounts/api/v1/accounts/8dcb8be4-bf5a-11ed-a85b-0242c0a89002/123/transactions
+ab -k -n 10000 -c 10 -H "Authorization: Bearer ACCESS_TOKEN" http://localhost:8080/credit-cards-accounts/api/v1/accounts/8dcb8be4-bf5a-11ed-a85b-0242c0a89002/123/transactions
 ![image](https://user-images.githubusercontent.com/17239827/226060776-58d7b271-2716-4880-b441-b4a0494343d6.png)
 
 
