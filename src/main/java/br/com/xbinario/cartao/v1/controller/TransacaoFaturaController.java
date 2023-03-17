@@ -44,8 +44,8 @@ public class TransacaoFaturaController {
     @RolesAllowed("CONSULTA_FATURA")
     @Path("/accounts/{creditCardNumber}/{cpfNumber}/transactions")
     @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações da Fatura ",  
-         description = "Obtém os dados das transações de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardNumber (Conta cartão), cpfNumber (cpfCnpj) e billingDate (Data de Faturamento)")
+    @Tag(name = "Invoice Transactions",  
+         description = "Gets transaction data from an invoice identified by creditCardAccountNumber (Card Account Number), creditCardNumber (Card Account), cpfNumber (cpfCnpj) and billingDate (Billing Date)")
     @APIResponses({
         @APIResponse(responseCode = "200", description = "Transações de uma Fatura localizado com sucesso."),
         @APIResponse(responseCode = "422", description = "Erro na conversão do JSON"),
@@ -88,8 +88,7 @@ public class TransacaoFaturaController {
     @Path("/accounts/{creditCardAccountId}/{creditCardAccountNumber}/transactions")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações de fatura", 
-        description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
+    @Tag(name = "Invoice Transactions")
     @Retry(maxRetries = 3, delay = 2000)
     public Response excluirSemAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
         return Response.ok().build();
