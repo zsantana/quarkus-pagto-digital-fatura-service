@@ -3,7 +3,7 @@
 A service using Rest API in Java (Quarkus) that provides invoice data information from a credit card available in a database.
 
 
-### Integrated tools:
+## Integrated tools:
 
 Observability:
 
@@ -33,6 +33,13 @@ Unit and Integration testing:
 * test-oidc-server
 * rest-assured
 
+
+## ✔️ Required
+* Maven: 3.8.4
+* Java version: 17
+* Docker version: 20.10.17
+* Docker-compose version: v2.2.2
+* Minikube version: v1.29.0
 
 
 ### Build
