@@ -26,8 +26,12 @@ openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -ou
 
 
 
-# Indicadores e Performance
+# Indicadores
 ![image](https://user-images.githubusercontent.com/17239827/225927764-6ea876b9-919d-4761-822e-acf100f2f3c7.png)
+
+# Performance
+![image](https://user-images.githubusercontent.com/17239827/225932487-f5e90504-3015-4e74-a9fd-c492ea9c3c69.png)
+
 
 
 # Tracing no Jaeger
