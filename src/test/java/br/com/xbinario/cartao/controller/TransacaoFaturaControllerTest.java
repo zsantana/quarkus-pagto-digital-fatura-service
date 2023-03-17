@@ -5,6 +5,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +32,7 @@ public class TransacaoFaturaControllerTest {
     private String ACCESS_TOKEN;
 
     @BeforeEach
-    void setUp(){
+    public void setup(){
 
           logger.info("### SERVER_URL: " + this.serverUrl);
           logger.info("### client_id: " + this.client_id);
@@ -44,15 +46,14 @@ public class TransacaoFaturaControllerTest {
                                   .clientId(client_id)
                                   .clientSecret(client_secret)
                                   .build();
-          this.ACCESS_TOKEN =  keycloak.tokenManager().getAccessToken().getToken();                             
+          this.ACCESS_TOKEN =  keycloak.tokenManager().getAccessToken().getToken();   
+          logger.info("### Token: " + this.ACCESS_TOKEN);                          
     }
 
 
 
     @Test
     public void testObterTransacaoEndpoint() {
-
-      logger.info("### Token: " + this.ACCESS_TOKEN);
 
       RestAssured.given()
                 .when()
@@ -65,13 +66,39 @@ public class TransacaoFaturaControllerTest {
 
 
     @Test
+    public void testObterTransacaoEndpointFail() {
+
+      RestAssured.given()
+                .when()
+                .header("Authorization", "Bearer " + this.ACCESS_TOKEN + ".") 
+                .when().get("/credit-cards-accounts/api/v1/accounts/123/123/transactions")
+                .then()
+                .statusCode(401)
+             ;
+    }
+
+
+    @Test
     public void testExcluirEndpoint() {
+
       RestAssured.given()
           .when()
           .header("Authorization", "Bearer " + this.ACCESS_TOKEN)
           .when().delete("/credit-cards-accounts/api/v1/accounts/123/123/transactions")
           .then()
           .statusCode(200);
+    }
+
+
+    @Test
+    public void testExcluirEndpointFail() {
+
+      RestAssured.given()
+          .when()
+          .header("Authorization", "Bearer " + this.ACCESS_TOKEN + ".") 
+          .when().delete("/credit-cards-accounts/api/v1/accounts/123/123/transactions")
+          .then()
+          .statusCode(401);
     }
 
     
