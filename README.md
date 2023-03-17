@@ -3,6 +3,38 @@
 Serviço utilizando API Rest em Java (Quarkus) que prove informações de dados da fatura de uma cartão disponível em base de dados.
 
 
+### Ferramentas integradas:
+
+Observabilidade:
+
+* smallrye-openapi
+* smallrye-metrics
+* smallrye-health 
+* opentelemetry
+
+
+Banco de Dados:
+* hibernate-reactive-panache
+* reactive-pg-client
+
+
+Autenticação e Segurança:
+* oidc-client
+* keycloak-authorization
+
+Outras integrações:
+* resteasy-reactive-jackson
+* lombok
+* mapstruct
+
+Teste Unitário e Integrado:
+* testcontainers
+* keycloak-admin-client
+* test-oidc-server
+* rest-assured
+
+
+
 ### Build
 mvn clean package
 
