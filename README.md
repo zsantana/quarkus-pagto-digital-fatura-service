@@ -86,8 +86,9 @@ openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -ou
 ![image](https://user-images.githubusercontent.com/17239827/225927764-6ea876b9-919d-4761-822e-acf100f2f3c7.png)
 
 
-# Performance
-![image](https://user-images.githubusercontent.com/17239827/225932487-f5e90504-3015-4e74-a9fd-c492ea9c3c69.png)
+# Performance with (hey)
+hey -z 10s -H "Authorization: Bearer ACCESS_TOKEN" http://localhost:8080/credit-cards-accounts/api/v1/accounts/8dcb8be4-bf5a-11ed-a85b-0242c0a89002/123/transactions
+![image](https://user-images.githubusercontent.com/17239827/226060297-5c2ee5d4-6e26-4bba-84bd-86c030352a22.png)
 
 
 # Tracing no Jaeger
