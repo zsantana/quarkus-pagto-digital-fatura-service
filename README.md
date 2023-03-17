@@ -52,6 +52,11 @@ Docker Image:
 * azul/zulu-openjdk: 17-latest
 
 
+### Swagger
+![image](https://user-images.githubusercontent.com/17239827/226056309-295315a2-4403-4ff6-ad0b-5bfd335d1b07.png)
+
+
+
 ### Build
 mvn clean package
 
