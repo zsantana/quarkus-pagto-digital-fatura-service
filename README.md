@@ -39,7 +39,17 @@ Unit and Integration testing:
 * Java version: 17
 * Docker version: 20.10.17
 * Docker-compose version: v2.2.2
-* Minikube version: v1.29.0
+
+
+Docker Image:
+* Minikube: v1.29.0
+* Keycloak: 19.0.3
+* postgres: 13
+* jaegertracing/all-in-one: 1
+* grafana/grafana: latest
+* elasticsearch: 8.4.1
+* Kibana: 8.4.1
+* azul/zulu-openjdk: 17-latest
 
 
 ### Build
