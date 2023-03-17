@@ -1,11 +1,11 @@
-# Microsserviço de consulta de fatura de cartão de crédito
+# Credit card invoice query microservice
 
-Serviço utilizando API Rest em Java (Quarkus) que prove informações de dados da fatura de uma cartão disponível em base de dados.
+A service using Rest API in Java (Quarkus) that provides invoice data information from a credit card available in a database.
 
 
-### Ferramentas integradas:
+### Integrated tools:
 
-Observabilidade:
+Observability:
 
 * smallrye-openapi
 * smallrye-metrics
@@ -13,21 +13,21 @@ Observabilidade:
 * opentelemetry
 
 
-Banco de Dados:
+Database:
 * hibernate-reactive-panache
 * reactive-pg-client
 
 
-Autenticação e Segurança:
+Authentication and Security:
 * oidc-client
 * keycloak-authorization
 
-Outras integrações:
+Other integrations:
 * resteasy-reactive-jackson
 * lombok
 * mapstruct
 
-Teste Unitário e Integrado:
+Unit and Integration testing:
 * testcontainers
 * keycloak-admin-client
 * test-oidc-server
@@ -39,21 +39,23 @@ Teste Unitário e Integrado:
 mvn clean package
 
 
-### Execução local
+### Local execution
 mvn quarkus:dev -Ddebug=false
 
 
-### Execução via docker-compose
+### Execution via docker-compose
 docker-compose --env-file ./.env up
 
 
-### gerando chave privada
+### Generating private key
 openssl genrsa -out rsaPrivateKey.pem 2048
 
-### gerando chave pública
+
+### Generating public key
 openssl rsa -pubout -in rsaPrivateKey.pem -out publicKey.pem
 
-### Convertendo chave privada formato PKCS#8
+
+### Converting private key to PKCS#8 format:
 openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -out privateKey.pem
 
 
