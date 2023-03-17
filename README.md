@@ -1,37 +1,33 @@
-## Projeto
+# Microsservico de consulta de fatura de cartão de crédito em banco de dados Postgres
 
 Serviço utilizando API Rest em Java (Quarkus) que prove informações de dados da fatura de uma cartão disponível em base de dados.
 
 
-## Build
+### Build
 mvn clean package
 
 
-## Execução local
+### Execução local
 mvn quarkus:dev -Ddebug=false
 
 
-# Execução via docker-compose
-
+### Execução via docker-compose
 docker-compose --env-file ./.env up
 
 
-# gerando chave privada
+### gerando chave privada
 openssl genrsa -out rsaPrivateKey.pem 2048
 
-# gerando chave pública
+### gerando chave pública
 openssl rsa -pubout -in rsaPrivateKey.pem -out publicKey.pem
 
-# convertendo chave privada formato PKCS#8
+### Convertendo chave privada formato PKCS#8
 openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -out privateKey.pem
 
 
-# Indicadores
+
+# Indicadores e Performance
 ![image](https://user-images.githubusercontent.com/17239827/225927764-6ea876b9-919d-4761-822e-acf100f2f3c7.png)
-
-# Performance
-![image](https://user-images.githubusercontent.com/17239827/225928592-10c0c690-2411-473b-83e9-8ad1588f8d7b.png)
-
 
 
 # Tracing no Jaeger
@@ -48,7 +44,3 @@ openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -ou
 
 # Autor
 Reinaldo Jesus Santana - reinaldojsantana@gmail.com
-
-
-
-
