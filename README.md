@@ -1,4 +1,4 @@
-# Microsservico de consulta de fatura de cartão de crédito em banco de dados Postgres
+# Microsserviço de consulta de fatura de cartão de crédito
 
 Serviço utilizando API Rest em Java (Quarkus) que prove informações de dados da fatura de uma cartão disponível em base de dados.
 
