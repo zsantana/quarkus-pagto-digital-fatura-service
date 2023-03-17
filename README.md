@@ -60,12 +60,12 @@ openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -ou
 
 
 
-# Indicadores
+# Indicadors
 ![image](https://user-images.githubusercontent.com/17239827/225927764-6ea876b9-919d-4761-822e-acf100f2f3c7.png)
+
 
 # Performance
 ![image](https://user-images.githubusercontent.com/17239827/225932487-f5e90504-3015-4e74-a9fd-c492ea9c3c69.png)
-
 
 
 # Tracing no Jaeger
@@ -76,11 +76,11 @@ openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -ou
 ![image](https://user-images.githubusercontent.com/17239827/225927225-93b47c5d-1fe7-42ab-9314-58baa8d67f0a.png)
 
 
-# Estrutura do Protejo
+# Project Structure
 ![image](https://user-images.githubusercontent.com/17239827/225925543-26bb4148-5283-4d1a-b98a-f72ab3e681d1.png)
 
 
-# Teste in container
+# Test in container
 ![image](https://user-images.githubusercontent.com/17239827/225934234-bdb98f70-d4ac-486a-b412-ebb001f5175d.png)
 
 
