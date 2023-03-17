@@ -98,6 +98,23 @@
         </dependency>
 
 
+       <!-- KEYCLOAK -->
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-oidc-client</artifactId>
+        </dependency>
+
+        <!-- Habilitar a autenticação dos enpoits -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-keycloak-authorization</artifactId>
+        </dependency>
+
+        
+        <!-- KEYCLOAK -->
+
+
 
          <dependency>
             <groupId>org.projectlombok</groupId>
@@ -119,7 +136,7 @@
         </dependency>
         
         
-
+        <!--
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-jwt</artifactId>
@@ -129,7 +146,7 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-jwt-build</artifactId>
         </dependency>
-
+        -->
         
       
         
@@ -164,6 +181,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-test-oidc-server</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
 
         <dependency>
             <groupId>org.testcontainers</groupId>
@@ -177,8 +200,13 @@
             <scope>test</scope>
         </dependency>
         
+        <!-- Usado no test unitário -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-admin-client</artifactId>
+            <version>16.1.0</version>
+        </dependency>
         
-
         
 
     </dependencies>
@@ -191,7 +219,11 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
+                    
                 <configuration>
+                    
+                    <skipTests>${skipTests}</skipTests>
+
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <maven.home>${maven.home}</maven.home>

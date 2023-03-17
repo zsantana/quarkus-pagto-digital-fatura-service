@@ -20,6 +20,8 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import br.com.xbinario.cartao.v1.dto.request.RequisicaoDTO;
 import br.com.xbinario.cartao.v1.dto.response.ResultadoDTO;
@@ -31,7 +33,7 @@ import io.smallrye.mutiny.Uni;
 @Path("/credit-cards-accounts/api/v1")
 public class TransacaoFaturaController {
 
-    //private static final Logger logger = LoggerFactory.getLogger(TransacaoFaturaOffLoadController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TransacaoFaturaController.class);
     //private static final String msg_erro = "Transação não encontrada";
 
     @Inject
@@ -39,7 +41,7 @@ public class TransacaoFaturaController {
 
 
     @GET
-    //@RolesAllowed("FaturaTransacao")
+    @RolesAllowed("CONSULTA_FATURA")
     @Path("/accounts/{creditCardNumber}/{cpfNumber}/transactions")
     @Produces(MediaType.APPLICATION_JSON)
     @Tag(name = "Transações da Fatura ",  
@@ -69,6 +71,9 @@ public class TransacaoFaturaController {
                                                      @PathParam("cpfNumber") String cpfCnpj
                                                      ) {
 
+        logger.info("creditCardNumber: {} ", contaCartao);
+        logger.info("cpfCnpj: {} ", cpfCnpj);
+
         var requestDTO = new RequisicaoDTO(contaCartao, cpfCnpj);
         var responseDTO = service.obterFatura(requestDTO);
 
@@ -77,22 +82,9 @@ public class TransacaoFaturaController {
     }
 
 
-    
-    @DELETE
-    @RolesAllowed("FaturaTransacao")
-    @Path("/accounts-token/{creditCardAccountId}/{creditCardAccountNumber}/{billingDate}/transactions")
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Tag(name = "Transações de fatura", 
-        description = "Exclui uma transação de uma fatura identificada por creditCardAccountNumber (Número Conta Cartão) , creditCardAccountId (Conta cartão) e billingDate (Data de Faturamento)")
-    @Retry(maxRetries = 3, delay = 2000)
-    public Response excluirComAutenticacao(@PathParam("numeroContaCartao") String numeroContaCartao){
-        return Response.ok().build();
-    }    
-    
 
     @DELETE
-    //@RolesAllowed("FaturaTransacao")
+    @RolesAllowed("EXCLUSAO_FATURA")
     @Path("/accounts/{creditCardAccountId}/{creditCardAccountNumber}/transactions")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)

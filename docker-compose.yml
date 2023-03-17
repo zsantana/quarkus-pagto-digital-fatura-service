@@ -16,7 +16,6 @@ services:
       - $QUARKUS_PORT:$QUARKUS_PORT
     networks:
       - "host_sendbox"
-    
 
 networks:
   host_sendbox:
