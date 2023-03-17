@@ -26,8 +26,12 @@ openssl rsa -pubout -in rsaPrivateKey.pem -out publicKey.pem
 openssl pkcs8 -topk8 -nocrypt -inform pem -in rsaPrivateKey.pem -outform pem -out privateKey.pem
 
 
-# Indicadores e Performance
+# Indicadores
 ![image](https://user-images.githubusercontent.com/17239827/225927764-6ea876b9-919d-4761-822e-acf100f2f3c7.png)
+
+# Performance
+![image](https://user-images.githubusercontent.com/17239827/225928592-10c0c690-2411-473b-83e9-8ad1588f8d7b.png)
+
 
 
 # Tracing no Jaeger
