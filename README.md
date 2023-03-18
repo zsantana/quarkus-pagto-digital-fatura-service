@@ -31,7 +31,7 @@ $ docker-compose --env-file ./.env up
 $ ./build_docker_native.sh 
 
 # Started and attaches to containers for a service
-$ docker-compose-native --env-file ./.env up
+$ docker-compose -f docker-compose-native.yml --env-file ./.env up
 ```
 
 
