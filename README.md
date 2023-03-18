@@ -3,6 +3,56 @@
 A service using Rest API in Java (Quarkus) that provides invoice data information from a credit card available in a database.
 
 
+
+## 💻 Getting started
+
+```bash
+# Build 
+$ mvn clean package
+
+# Local execution
+$ mvn quarkus:dev -Ddebug=false
+```
+
+
+## Getting started Docker
+```bash
+# Install image from file build_docker_push.sh 
+$ ./build_docker_push.sh 
+
+# Started and attaches to containers for a service
+$ docker-compose --env-file ./.env up
+```
+
+
+## Getting started Docker (Native Image)
+```bash
+# Install image from file build_docker_push.sh 
+$ ./build_docker_native.sh 
+
+# Started and attaches to containers for a service
+$ docker-compose-native --env-file ./.env up
+```
+
+
+## ✔️ Required
+* Maven: 3.8.4
+* Java version: 17
+* Docker version: 20.10.17
+* Docker-compose version: v2.2.2
+
+
+Docker Image:
+* Minikube: v1.29.0
+* Keycloak: 19.0.3
+* postgres: 13
+* jaegertracing/all-in-one: 1
+* grafana/grafana: latest
+* elasticsearch: 8.4.1
+* Kibana: 8.4.1
+* azul/zulu-openjdk: 17-latest
+
+
 ## Integrated tools:
 
 Observability:
@@ -34,39 +84,12 @@ Unit and Integration testing:
 * rest-assured
 
 
-## ✔️ Required
-* Maven: 3.8.4
-* Java version: 17
-* Docker version: 20.10.17
-* Docker-compose version: v2.2.2
 
-
-Docker Image:
-* Minikube: v1.29.0
-* Keycloak: 19.0.3
-* postgres: 13
-* jaegertracing/all-in-one: 1
-* grafana/grafana: latest
-* elasticsearch: 8.4.1
-* Kibana: 8.4.1
-* azul/zulu-openjdk: 17-latest
 
 
 ### Swagger
 ![image](https://user-images.githubusercontent.com/17239827/226056309-295315a2-4403-4ff6-ad0b-5bfd335d1b07.png)
 
-
-
-### Build
-mvn clean package
-
-
-### Local execution
-mvn quarkus:dev -Ddebug=false
-
-
-### Execution via docker-compose
-docker-compose --env-file ./.env up
 
 
 ### Generating private key
